@@ -36,7 +36,7 @@ jobs:
       - name: Checkout Upstream Lens
         uses: actions/checkout@v3
         with:
-          repository: jodzga/lens
+          repository: lensapp/lens
           path: lens
           ref: v${{ env.LENS_VERSION }}
           fetch-depth: 1
@@ -45,8 +45,9 @@ jobs:
           node update.js
       - name: Merge db-experiments branch
         run: |
-          git fetch origin db-experiments 
-          git merge origin/db-experiments
+          git remote add jodzga git@github.com:jodzga/lens.git
+          git fetch jodzga db-experiments 
+          git merge jodzga/db-experiments
       - name: Build Lens
         run: |
           mkdir releasefiles
@@ -134,7 +135,7 @@ jobs:
             lens/packages/open-lens/dist/OpenLens-${{ env.LENS_VERSION }}*.sha256
 
       - name: Generate Changelog
-        run: curl -s https://api.github.com/repos/jodzga/lens/releases/latest | jq -r 'select(.prerelease == false) | .body[0:]' > ${{ github.workspace }}-CHANGELOG.txt
+        run: curl -s https://api.github.com/repos/lensapp/lens/releases/latest | jq -r 'select(.prerelease == false) | .body[0:]' > ${{ github.workspace }}-CHANGELOG.txt
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         if: github.ref == 'refs/heads/main'

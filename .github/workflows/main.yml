@@ -45,7 +45,7 @@ jobs:
           node update.js
       - name: Merge db-experiments branch
         run: |
-          git remote add jodzga git@github.com:jodzga/lens.git
+          git remote add jodzga https://github.com/jodzga/lens.git
           git fetch jodzga db-experiments 
           git merge jodzga/db-experiments
       - name: Build Lens

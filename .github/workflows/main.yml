@@ -43,6 +43,10 @@ jobs:
       - name: Patch Upstream Lens
         run: |
           node update.js
+      - name: Merge db-experiments branch
+        run: |
+          git fetch origin db-experiments 
+          git merge origin/db-experiments
       - name: Build Lens
         run: |
           mkdir releasefiles

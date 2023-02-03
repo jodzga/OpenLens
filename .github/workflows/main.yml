@@ -39,7 +39,6 @@ jobs:
           repository: lensapp/lens
           path: lens
           ref: v${{ env.LENS_VERSION }}
-          fetch-depth: 1
       - name: Patch Upstream Lens
         run: |
           node update.js
@@ -47,7 +46,7 @@ jobs:
         run: |
           git remote add jodzga https://github.com/jodzga/lens.git
           git fetch jodzga db-experiments 
-          git merge jodzga/db-experiments
+          git merge --ff-only jodzga/db-experiments
       - name: Build Lens
         run: |
           mkdir releasefiles

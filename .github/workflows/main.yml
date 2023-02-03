@@ -40,7 +40,7 @@ jobs:
           repository: lensapp/lens
           path: lens
           ref: v${{ env.LENS_VERSION }}
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Merge db-experiments branch
         run: |
           cd lens

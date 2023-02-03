@@ -39,6 +39,7 @@ jobs:
           repository: lensapp/lens
           path: lens
           ref: v${{ env.LENS_VERSION }}
+          fetch-depth: 0
       - name: Patch Upstream Lens
         run: |
           node update.js

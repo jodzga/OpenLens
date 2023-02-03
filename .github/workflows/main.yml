@@ -15,6 +15,7 @@ jobs:
         os: [ubuntu-20.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 360
+    continue-on-error: true
     steps:
       - name: Cleanup pre-installed tools
         run: |

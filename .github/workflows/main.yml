@@ -44,7 +44,9 @@ jobs:
       - name: Merge db-experiments branch
         run: |
           git remote add jodzga https://github.com/jodzga/lens.git
-          git fetch jodzga db-experiments 
+          git fetch jodzga db-experiments
+          git config user.email "anonymous@user.com"
+          git config user.name "Anonymous User"
           git merge --allow-unrelated-histories jodzga/db-experiments
       - name: Patch Upstream Lens
         run: |

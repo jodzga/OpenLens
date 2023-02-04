@@ -37,14 +37,12 @@ jobs:
       - name: Merge db-experiments branch
         run: |
           cd lens
-          pwd
           git config user.email "jodzga@gmail.com"
           git config user.name "jodzga"
           git remote add jodzga https://github.com/jodzga/lens.git
           git fetch jodzga db-experiments
           git merge jodzga/db-experiments
           cd ..
-          pwd
       - name: Patch Upstream Lens
         run: |
           node update.js

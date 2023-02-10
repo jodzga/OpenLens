@@ -163,3 +163,4 @@ jobs:
             lens/packages/open-lens/dist/OpenLens-${{ env.LENS_VERSION }}*.zip
             lens/packages/open-lens/dist/OpenLens.Setup.${{ env.LENS_VERSION }}.exe
             lens/packages/open-lens/dist/lates*.yml
+
